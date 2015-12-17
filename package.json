@@ -2,11 +2,15 @@
     "name": "console",
     "displayName": "Open in User-defined Console",
     "description": "Open console with a user-defined executable.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "vilicvane",
-    "projectUrl": "https://github.com/vilic/vs-code-console",
+    "icon": "images/icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vilic/vscode-console"
+    },
     "engines": {
-        "vscode": "^0.10.x"
+        "vscode": "^0.10.0"
     },
     "categories": [
         "Other"
