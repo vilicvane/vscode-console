@@ -1,0 +1,52 @@
+{
+    "name": "console",
+    "displayName": "Open in User-defined Console",
+    "description": "Open console with a user-defined executable.",
+    "version": "0.0.1",
+    "publisher": "vilicvane",
+    "projectUrl": "https://github.com/vilic/vs-code-console",
+    "engines": {
+        "vscode": "^0.10.x"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:console.open"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "console.open",
+                "title": "Console: Open workspace in console"
+            }
+        ],
+        "configuration": {
+            "title": "Console",
+            "properties": {
+                "console.executable": {
+                    "type": "string",
+                    "description": "Console executable path for `console.open` command."
+                },
+                "console.args": {
+                    "type": "array",
+                    "description": "Console executable arguments for `console.open` command."
+                }
+            }
+        },
+        "keybindings": {
+            "key": "ctrl+shift+c",
+            "mac": "cmd+shift+c",
+            "command": "console.open"
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+    },
+    "devDependencies": {
+        "typescript": "^1.6.2",
+        "vscode": "0.10.x"
+    }
+}
