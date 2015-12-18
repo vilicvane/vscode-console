@@ -1,6 +1,6 @@
 # Console
 
-This extension will add command `console.open` to Visual Studio Code, and override keybindings `Ctrl/Cmd+Shift+C` with this command.
+This extension will add command `console.open` to Visual Studio Code, and override keybinding `Ctrl/Cmd+Shift+C` with this command.
 
 You must configure a console executable to use this extension.
 
