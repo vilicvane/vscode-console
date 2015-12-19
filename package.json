@@ -2,7 +2,7 @@
     "name": "console",
     "displayName": "Open in User-defined Console",
     "description": "Open console with a user-defined executable.",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "vilicvane",
     "icon": "images/icon.png",
     "repository": {
@@ -44,7 +44,7 @@
                 },
                 "console.cwd": {
                     "type": "string",
-                    "default": "{directory}", 
+                    "default": "{dirname}",
                     "description": "Console executable working directory for `console.*` command."
                 }
             }

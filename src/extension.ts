@@ -58,7 +58,7 @@ function getOptions(activeFilePath?: string): SpawnOptions {
     let args = config.get<string[]>('args') || [];
     
     let data: HashTable<string> = {
-        directory: activeFilePath ?
+        dirname: activeFilePath ?
             Path.dirname(activeFilePath) : workspace.rootPath
     };
     
