@@ -2,7 +2,7 @@
     "name": "console",
     "displayName": "Open in User-defined Console",
     "description": "Open console with a user-defined executable.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "vilicvane",
     "icon": "images/icon.png",
     "repository": {
@@ -16,14 +16,19 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:console.open"
+        "onCommand:console.open",
+        "onCommand:console.openActive"
     ],
-    "main": "./out/src/extension",
+    "main": "./out/extension",
     "contributes": {
         "commands": [
             {
                 "command": "console.open",
                 "title": "Console: Open workspace in console"
+            },
+            {
+                "command": "console.openActive",
+                "title": "Console: Open directory of active file in console"
             }
         ],
         "configuration": {
@@ -31,19 +36,31 @@
             "properties": {
                 "console.executable": {
                     "type": "string",
-                    "description": "Console executable path for `console.open` command."
+                    "description": "Console executable path for `console.*` commands."
                 },
                 "console.args": {
                     "type": "array",
-                    "description": "Console executable arguments for `console.open` command."
+                    "description": "Console executable arguments for `console.*` commands."
+                },
+                "console.cwd": {
+                    "type": "string",
+                    "default": "{directory}", 
+                    "description": "Console executable working directory for `console.*` command."
                 }
             }
         },
-        "keybindings": {
-            "key": "ctrl+shift+c",
-            "mac": "cmd+shift+c",
-            "command": "console.open"
-        }
+        "keybindings": [
+            {
+                "key": "ctrl+shift+c",
+                "mac": "cmd+shift+c",
+                "command": "console.open"
+            },
+            {
+                "key": "ctrl+shift+a",
+                "mac": "cmd+shift+a",
+                "command": "console.openActive"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "node ./node_modules/vscode/bin/compile",

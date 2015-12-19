@@ -1,8 +1,20 @@
 # Console
 
-This extension will add command `console.open` to Visual Studio Code, and override keybinding `Ctrl/Cmd+Shift+C` with this command.
+A Visual Studio Code extension for opening projects in user-defined consoles.
 
-You must configure a console executable to use this extension.
+## Commands
+
+### `console.open`
+
+**description:** Open current workspace in user-defined console.  
+**key binding:** `Ctrl/Cmd+Shift+C`
+
+### `console.openActive`  
+
+**description:** Open the directory containing active file in user-defined console.  
+**key binding:** `Ctrl/Cmd+Shift+A`
+
+**You must configure a console executable to use this extension.**
 
 For example:
 
