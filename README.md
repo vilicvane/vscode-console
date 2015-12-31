@@ -20,10 +20,17 @@ For example:
 
 ```json
 {
-    "console.executable": "C:\\Program Files\\ConEmu\\ConEmu64.exe",
-    "console.args": ["/single"]
+    "console.executable": "cmd.exe",
+    "console.args": [
+        "/c",
+        "C:\\Program Files\\ConEmu\\ConEmu64.exe",
+        "/single"
+    ]
 }
 ```
+
+**Note:** there is some issue with Ctrl+C if you start ConEmu directly with `"console.detached": true`.
+It is recommended to use `cmd.exe` to start ConEmu.
 
 ## License
 

@@ -2,7 +2,7 @@
     "name": "console",
     "displayName": "Open in User-defined Console",
     "description": "Open console with a user-defined executable.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "vilicvane",
     "icon": "images/icon.png",
     "repository": {
@@ -36,16 +36,21 @@
             "properties": {
                 "console.executable": {
                     "type": "string",
-                    "description": "Console executable path for `console.*` commands."
+                    "description": "Console executable path."
                 },
                 "console.args": {
                     "type": "array",
-                    "description": "Console executable arguments for `console.*` commands."
+                    "description": "Console executable arguments."
                 },
                 "console.cwd": {
                     "type": "string",
                     "default": "{dirname}",
-                    "description": "Console executable working directory for `console.*` command."
+                    "description": "Console executable working directory."
+                },
+                "console.detached": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Value for `detached` option while `spawn` console process."
                 }
             }
         },

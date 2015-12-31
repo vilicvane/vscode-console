@@ -27,7 +27,7 @@ export function activate(context: ExtensionContext): void {
 }
 
 function executeCommand(activeFilePath?: string) {
-    let { exe, args, cwd } = getOptions(activeFilePath);
+    let { exe, args, cwd, detached } = getOptions(activeFilePath);
     
     if (!exe) {
         window.showInformationMessage('No executable has be configured with `console.open` command.');
@@ -40,7 +40,7 @@ function executeCommand(activeFilePath?: string) {
     }
     
     ChildProcess.spawn(exe, args, {
-        detached: true,
+        detached,
         cwd
     });
 }
@@ -49,6 +49,7 @@ interface SpawnOptions {
     exe: string;
     args: string[];
     cwd: string;
+    detached: boolean;
 }
 
 function getOptions(activeFilePath?: string): SpawnOptions {
@@ -69,7 +70,8 @@ function getOptions(activeFilePath?: string): SpawnOptions {
     return {
         exe,
         args,
-        cwd
+        cwd,
+        detached: config.get<boolean>('detached')
     };
 }
 
