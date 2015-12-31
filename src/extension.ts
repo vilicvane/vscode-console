@@ -39,15 +39,21 @@ function executeCommand(activeFilePath?: string) {
         return;
     }
     
-    ChildProcess.spawn(exe, args, {
-        detached,
-        cwd
-    });
+    if (typeof args === 'string') {
+        ChildProcess.exec(`${exe} ${args}`, {
+            cwd
+        });
+    } else {
+        ChildProcess.spawn(exe, args, {
+            detached,
+            cwd
+        });
+    }
 }
 
 interface SpawnOptions {
     exe: string;
-    args: string[];
+    args: string | string[];
     cwd: string;
     detached: boolean;
 }
@@ -56,14 +62,15 @@ function getOptions(activeFilePath?: string): SpawnOptions {
     let config = workspace.getConfiguration('console');
     
     let exe = config.get<string>('executable');
-    let args = config.get<string[]>('args') || [];
+    let args = config.get<string | string[]>('args') || [];
     
     let data: HashTable<string> = {
         dirname: activeFilePath ?
             Path.dirname(activeFilePath) : workspace.rootPath
     };
     
-    args = args.map(arg => buildValue(arg, data));
+    args = typeof args === 'string' ?
+        buildValue(args, data) : args.map(arg => buildValue(arg, data));
     
     let cwd = buildValue(config.get<string>('cwd'), data);
     

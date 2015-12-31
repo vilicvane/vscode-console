@@ -2,7 +2,7 @@
     "name": "console",
     "displayName": "Open in User-defined Console",
     "description": "Open console with a user-defined executable.",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "publisher": "vilicvane",
     "icon": "images/icon.png",
     "repository": {
@@ -39,7 +39,7 @@
                     "description": "Console executable path."
                 },
                 "console.args": {
-                    "type": "array",
+                    "type": ["string", "array"],
                     "description": "Console executable arguments."
                 },
                 "console.cwd": {
