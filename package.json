@@ -58,7 +58,8 @@
             {
                 "key": "ctrl+shift+c",
                 "mac": "cmd+shift+c",
-                "command": "console.open"
+                "command": "console.open",
+                "when": "!terminalFocus"
             },
             {
                 "key": "ctrl+shift+a",
